@@ -1,0 +1,59 @@
+{
+  "status": "fresh 20-repeat run on three datasets; not a full reproduction of Breiman (2001)",
+  "repeats_per_dataset": 20,
+  "prospective_prediction": "Across 20 fresh repeats, mtry=F will have a lower mean training OOB error than mtry=1 on each dataset; mean test error will not be lower for mtry=F on all three datasets.",
+  "pilot_outputs_preserved": true,
+  "random_forest_trees": 100,
+  "test_size": 0.1,
+  "stratify": null,
+  "selection_metric": "lower training OOB classification error",
+  "tie_breaker": "mtry=1",
+  "model_fit_count": 180,
+  "base_seed": 20261123,
+  "seed_rationale": "Fixed before this run; date-coded to distinguish this fresh sequence from the earlier pilot. It has no scientific meaning.",
+  "python": "3.12.5",
+  "numpy": "2.3.4",
+  "pandas": "2.3.3",
+  "scikit_learn": "1.7.2",
+  "datasets": [
+    {
+      "name": "ionosphere",
+      "archive": "ionosphere.zip",
+      "member": "ionosphere.data",
+      "source_url": "https://archive.ics.uci.edu/static/public/52/ionosphere.zip",
+      "sha256": "4d218ece62756c99659011a13052d06464f13cb2b3d0410ce2aef16de1403860",
+      "expected_rows": 351,
+      "expected_features": 34,
+      "expected_classes": 2,
+      "drop_identifier": false,
+      "archive_sha256_verified": "4d218ece62756c99659011a13052d06464f13cb2b3d0410ce2aef16de1403860",
+      "mtry_rule": 6
+    },
+    {
+      "name": "sonar",
+      "archive": "sonar.zip",
+      "member": "sonar.all-data",
+      "source_url": "https://archive.ics.uci.edu/static/public/151/connectionist+bench+sonar+mines+vs+rocks.zip",
+      "sha256": "088b0b6813fb5ab84736bc2a1e3d6bb886e317520d2f2c04152e2ed65af7a18d",
+      "expected_rows": 208,
+      "expected_features": 60,
+      "expected_classes": 2,
+      "drop_identifier": false,
+      "archive_sha256_verified": "088b0b6813fb5ab84736bc2a1e3d6bb886e317520d2f2c04152e2ed65af7a18d",
+      "mtry_rule": 6
+    },
+    {
+      "name": "glass",
+      "archive": "glass.zip",
+      "member": "glass.data",
+      "source_url": "https://archive.ics.uci.edu/static/public/42/glass+identification.zip",
+      "sha256": "499c07a17115bf63100bb19cc1fdefad7f464bf5dc2b168930fa2071fd6b6e65",
+      "expected_rows": 214,
+      "expected_features": 9,
+      "expected_classes": 6,
+      "drop_identifier": true,
+      "archive_sha256_verified": "499c07a17115bf63100bb19cc1fdefad7f464bf5dc2b168930fa2071fd6b6e65",
+      "mtry_rule": 4
+    }
+  ]
+}

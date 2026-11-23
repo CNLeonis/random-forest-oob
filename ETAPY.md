@@ -42,17 +42,33 @@ w §4 Breiman (2001) raportuje 100 powtórzeń dla mniejszych zbiorów.
 Raportować pilotaż osobno jako `pilot (n=5)`; nie łączyć z wynikami końcowymi
 ani nie przedstawiać jako wykonania pełnego eksperymentu.
 
+**Kontynuacja:** wykonano świeże 20 powtórzeń na tych samych trzech zbiorach,
+z nowym ziarnem i osobnymi plikami wynikowymi. Hipoteza poniżej została
+sformułowana po obejrzeniu pilotażu, ale przed tym nowym przebiegiem; nie
+przypisujemy jej wstecznie do pierwszych pięciu powtórzeń.
+
+- Oczekujemy, że średni błąd OOB `mtry=F` będzie niższy niż `mtry=1`
+  w każdym zbiorze.
+- Nie oczekujemy, że średni błąd testowy `mtry=F` będzie niższy we wszystkich
+  trzech zbiorach; większe `mtry` może zwiększać zarówno siłę, jak i korelację
+  drzew.
+
+Wyniki 20 świeżych powtórzeń: obie hipotezy zgodziły się z obserwacjami.
+Średni błąd OOB dla `mtry=F` był niższy na każdym zbiorze. Średni błąd testowy
+był niższy dla `mtry=F` na Ionosphere i Sonar, ale wyższy na Glass.
+Podsumowanie liczbowe jest w README i `results/stage2_fresh20_summary.csv`.
+
 - [x] Uruchomić pilotaż i punkt odniesienia; zapisać zbiory, dokładne indeksy
   podziałów, ziarna, parametry i konfigurację.
 - [x] Przygotować tabelę z rzeczywistymi wynikami pilotażu.
 - [x] Powiązać obliczenie OOB z kodem, sprawdzić je bezpośrednio względem
   wyniku biblioteki i pokazać przykład liczbowy.
-- [x] Wyjaśnić znaczenie `mtry` oraz zestawić oczekiwanie z wynikami:
-  średni OOB był niższy dla `mtry=F` na wszystkich trzech zbiorach, ale
-  błąd testowy po selekcji OOB nie był zawsze niższy.
+- [x] Wyjaśnić znaczenie `mtry`, zapisać hipotezę przed świeżym przebiegiem
+  20 powtórzeń i porównać ją z uzyskanymi wynikami. Hipoteza była
+  post-pilotowa, nie przed pierwotnymi pięcioma powtórzeniami.
 - [x] Opisać ograniczenia i różnice pilota względem pełnego zakresu:
-  użyto tylko trzech zbiorów i pięciu powtórzeń, bez dodawania cech
-  szumowych; osobny wynik CART nie jest artykułowym „One Tree”.
+  użyto trzech zbiorów, bez dodawania cech szumowych; osobny wynik CART nie
+  jest artykułowym „One Tree”.
 - [ ] Przygotować slajdy, uruchamialny kod, notatkę z postępów
   (około 1–2 stron) i informację o wykorzystaniu AI.
 
