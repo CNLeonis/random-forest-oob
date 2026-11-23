@@ -4,6 +4,29 @@ Projekt dotyczy oceny błędu out-of-bag (OOB) i odporności lasów losowych na
 cechy nieinformacyjne, na podstawie Breiman (2001). Status zadań i etapy
 opisuje [ETAPY.md](ETAPY.md).
 
+## Ponowne uruchomienie obliczeń
+
+Zależności Python: `python -m pip install -r requirements.txt`. Zapisanych wyników
+nie nadpisuj; nowy przebieg kieruj do osobnego katalogu:
+
+```powershell
+python -B .\noise_experiment.py --out-dir .\results\powtorka_szumu
+```
+
+Porównanie z późniejszym autorskim programem Breimana i Cutler 5.1 (2004)
+wymaga kompilatora `gfortran`. [Oryginalny kod Fortran](https://www.stat.berkeley.edu/~breiman/RandomForests/cc_examples/prog.f)
+jest przechowywany lokalnie poza Git. Aby go pobrać i odtworzyć zapisane
+20 powtórzeń na Ionosphere:
+
+```powershell
+New-Item -ItemType Directory -Force .\author_code | Out-Null
+Invoke-WebRequest -Uri 'https://www.stat.berkeley.edu/~breiman/RandomForests/cc_examples/prog.f' -OutFile .\author_code\breiman_cutler_rf51_2004.f
+python -B .\author_compare.py --compiler C:\sciezka\do\gfortran.exe --out-dir .\results\powtorka_autora
+```
+
+`author_compare.py` sprawdza SHA-256 źródła przed kompilacją. Program z 2004 r.
+nie jest potwierdzoną wersją kodu użytego do tabeli z artykułu z 2001 r.
+
 ## Pilotaż etapu 2 — pierwsze 5 powtórzeń
 
 Pierwsze 5 powtórzeń dla trzech zbiorów stanowiło pilotaż. Przed kolejnymi

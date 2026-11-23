@@ -1,0 +1,34 @@
+{
+  "source": "https://www.stat.berkeley.edu/~breiman/RandomForests/cc_examples/prog.f",
+  "source_release": "Breiman and Cutler classification code, version 5.1, 2004-06-15",
+  "not_exact_2001_experiment_code": true,
+  "source_file": "author_code/breiman_cutler_rf51_2004.f",
+  "source_sha256": "a985f3a0bef2b4f270c6d3064039ff086bd45c613fde3c72e5d72a156f72f09b",
+  "adaptations": [
+    "Ionosphere dimensions, two labelled classes and 36 labelled test cases",
+    "100 trees and mtry=1 or 6",
+    "class mapping b=1, g=2",
+    "disable importance, proximity and other nonessential outputs",
+    "read a distinct forest seed from seed.txt for each frozen split"
+  ],
+  "no_changes_to_tree_oob_or_test_prediction_routines": true,
+  "compiler": "GNU Fortran (MinGW-W64 x86_64-msvcrt-posix-seh, built by Brecht Sanders, r1) 15.3.0",
+  "compile_flags": [
+    "-std=legacy",
+    "-fallow-argument-mismatch",
+    "-ffixed-line-length-none",
+    "-fno-range-check",
+    "-O2"
+  ],
+  "compiler_warning_count": 2,
+  "compiler_warnings": [
+    "rf_mtry1.f:943:46:\n\n  940 |                         do n=1,nsample\n      |                                           2                               \n......\n  943 |                                 write(29,'(5000(i5,f10.3))') (k,prox(n,k),k=1,nrnn)\n      |                                                                          1\nWarning: Array reference at (1) out of bounds (315 > 1) in loop beginning at (2)",
+    "rf_mtry6.f:943:46:\n\n  940 |                         do n=1,nsample\n      |                                           2                               \n......\n  943 |                                 write(29,'(5000(i5,f10.3))') (k,prox(n,k),k=1,nrnn)\n      |                                                                          1\nWarning: Array reference at (1) out of bounds (315 > 1) in loop beginning at (2)"
+  ],
+  "forest_seed_formula_zero_based_repeat": "410000+r",
+  "frozen_splits_file": "results/stage2_fresh20_runs.csv",
+  "source_archive_sha256": "4d218ece62756c99659011a13052d06464f13cb2b3d0410ce2aef16de1403860",
+  "author_program_fit_count": 40,
+  "selection_rule": "lower training OOB; tie -> mtry=1",
+  "all_planned_runs_successful": true
+}

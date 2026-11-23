@@ -1,0 +1,39 @@
+{
+  "status": "prespecified Gaussian-noise experiment on Ionosphere",
+  "prediction_recorded_before_run": "With 50 Gaussian noise features, mean OOB and test errors will rise relative to no noise, particularly at mtry=1; mtry=6 may be selected more often. This prediction was recorded before the noise run.",
+  "protocol_file": "ETAP2_PROTOKOL_ETAP3.md",
+  "hypothesis_checks_descriptive_not_significance_tests": {
+    "oob_mtry_1_higher_at_plus50": true,
+    "oob_mtry_6_higher_at_plus50": true,
+    "test_mtry_1_higher_at_plus50": true,
+    "test_mtry_6_higher_at_plus50": true,
+    "test_mtry_1_deteriorates_more_than_mtry_6": true,
+    "mtry_6_selected_more_often_at_plus50": true
+  },
+  "dataset": "ionosphere",
+  "source_archive_sha256": "4d218ece62756c99659011a13052d06464f13cb2b3d0410ce2aef16de1403860",
+  "repeats": 20,
+  "conditions_added_noise": [
+    0,
+    10,
+    50
+  ],
+  "mtry_values_fixed": [
+    1,
+    6
+  ],
+  "n_estimators_per_forest": 100,
+  "forest_seed_for_repeat_r_zero_based": "310000+r",
+  "noise_seed_for_repeat_r_zero_based": "320000+r",
+  "noise_generator": "numpy.random.default_rng(seed).normal(size=(351,50))",
+  "noise_plus10_is_first_10_of_plus50": true,
+  "frozen_splits_file": "results/stage2_fresh20_runs.csv",
+  "stratify": null,
+  "selection": "minimum training OOB classification error; tie -> mtry=1",
+  "hypothetical_k_one_is_not_measured_number_of_informative_features": true,
+  "model_fit_count": 120,
+  "python": "3.12.5",
+  "numpy": "2.3.4",
+  "pandas": "2.3.3",
+  "scikit_learn": "1.7.2"
+}
